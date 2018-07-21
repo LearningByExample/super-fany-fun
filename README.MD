@@ -32,3 +32,8 @@ Now you could open the project folder for the platform you like to use:
 - proj.win32
 
 Currently we are just updating the iOS and Mac project other may not work, yet.
+
+## resources
+
+- Game art by [Game Art 2D](https://www.gameart2d.com/)
+- [Cocox2d-x](http://www.cocos2d-x.org)
