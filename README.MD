@@ -62,6 +62,10 @@ where `<PLATFORM>` is :
 - `android` 
 - `mac`
 
+## using visual studio code
+
+You could use visual studio code, follow [this guide](https://code.visualstudio.com/docs/languages/cpp) provided by Microsoft to add C++ support.
+
 ## resources
 
 - Game art by [Game Art 2D](https://www.gameart2d.com/)
