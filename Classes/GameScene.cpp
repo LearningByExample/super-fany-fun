@@ -21,7 +21,7 @@ bool GameScene::init()
     fany = Sprite::create("sprites/ninja/Run__000.png");
     if (fany == nullptr)
     {
-        CCLOG("error loading funy sprite");
+        CCLOGERROR("error loading funy sprite");
         return false;
     }
 
