@@ -21,7 +21,7 @@ bool GameScene::init()
     fany = Sprite::create("sprites/ninja/Run__000.png");
     if (fany == nullptr)
     {
-        log("error loading funy sprite");
+        CCLOG("error loading funy sprite");
         return false;
     }
 
@@ -31,6 +31,8 @@ bool GameScene::init()
     this->addChild(fany);
 
     this->scheduleUpdate();
+
+    CCLOG("game init complete");
 
     return true;
 }
