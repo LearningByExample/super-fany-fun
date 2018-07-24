@@ -93,3 +93,4 @@ docs/html/*
 bin
 cocos2d/build
 proj.ios_mac/build
+.vscode
