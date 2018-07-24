@@ -45,5 +45,5 @@ bool GameScene::init()
 
 void GameScene::update(float delta)
 {
-    bg->scroll(delta * 50.0f);
+    bg->scroll(delta * 150.0f);
 }
