@@ -37,6 +37,10 @@
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		580FFC37210314A60071B437 /* sprites in Resources */ = {isa = PBXBuildFile; fileRef = 580FFC36210314A60071B437 /* sprites */; };
 		580FFC38210314A60071B437 /* sprites in Resources */ = {isa = PBXBuildFile; fileRef = 580FFC36210314A60071B437 /* sprites */; };
+		58DC4FC6210798B800B1B005 /* Fany.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58DC4FC5210798B800B1B005 /* Fany.cpp */; };
+		58DC4FC7210798B800B1B005 /* Fany.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58DC4FC5210798B800B1B005 /* Fany.cpp */; };
+		58DC4FCB21079C7200B1B005 /* BackGround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58DC4FC921079C7200B1B005 /* BackGround.cpp */; };
+		58DC4FCC21079C7200B1B005 /* BackGround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58DC4FC921079C7200B1B005 /* BackGround.cpp */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -120,6 +124,10 @@
 		5087E78A17EB975400C73F5D /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		580FFC36210314A60071B437 /* sprites */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sprites; sourceTree = "<group>"; };
+		58DC4FC3210798B800B1B005 /* Fany.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fany.h; sourceTree = "<group>"; };
+		58DC4FC5210798B800B1B005 /* Fany.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fany.cpp; sourceTree = "<group>"; };
+		58DC4FC921079C7200B1B005 /* BackGround.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BackGround.cpp; sourceTree = "<group>"; };
+		58DC4FCA21079C7200B1B005 /* BackGround.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackGround.h; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -265,10 +273,14 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				58DC4FC5210798B800B1B005 /* Fany.cpp */,
+				58DC4FC3210798B800B1B005 /* Fany.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* GameScene.cpp */,
 				46880B8719C43A87006E1F66 /* GameScene.h */,
+				58DC4FC921079C7200B1B005 /* BackGround.cpp */,
+				58DC4FCA21079C7200B1B005 /* BackGround.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -422,7 +434,9 @@
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				58DC4FC6210798B800B1B005 /* Fany.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
+				58DC4FCB21079C7200B1B005 /* BackGround.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* GameScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +448,8 @@
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* GameScene.cpp in Sources */,
+				58DC4FC7210798B800B1B005 /* Fany.cpp in Sources */,
+				58DC4FCC21079C7200B1B005 /* BackGround.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,15 +18,21 @@ bool GameScene::init()
         return false;
     }
 
-    fany = Sprite::create("sprites/ninja/Run__000.png");
+    bg = BackGround::create();
+    if (bg == nullptr)
+    {
+        CCLOGERROR("error loading background");
+        return false;
+    }
+
+    this->addChild(bg);
+
+    fany = Fany::create();
     if (fany == nullptr)
     {
         CCLOGERROR("error loading funy sprite");
         return false;
     }
-
-    fany->setPosition(0, 100);
-    fany->setScale(0.5f);
 
     this->addChild(fany);
 
@@ -39,9 +45,5 @@ bool GameScene::init()
 
 void GameScene::update(float delta)
 {
-    auto pos = fany->getPosition();
-
-    pos.x += (50 * delta);
-
-    fany->setPosition(pos);
+    bg->scroll(delta * 50.0f);
 }
