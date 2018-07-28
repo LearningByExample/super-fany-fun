@@ -45,5 +45,9 @@ bool GameScene::init()
 
 void GameScene::update(float delta)
 {
-    bg->scroll(delta * 150.0f);
+    float speed = fany->getSpeed();
+
+    bg->scroll(delta * 150.0f * speed);
+
+    fany->update(delta);
 }

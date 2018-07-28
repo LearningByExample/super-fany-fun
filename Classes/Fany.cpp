@@ -14,7 +14,7 @@ bool Fany::init()
         this->setScale(0.5f);
     }
 
-    auto anim = Animation::create();
+    anim = Animation::create();
     for (unsigned short int num = 0; num <= 9; num++)
     {
         char name[255];
@@ -22,15 +22,25 @@ bool Fany::init()
         anim->addSpriteFrameWithFile(name);
     }
     anim->setLoops(-1);
-    anim->setDelayPerUnit(0.05f);
+    anim->setDelayPerUnit(BASE_ANIM_SPEED);
 
     auto animAction = Animate::create(anim);
 
     this->runAction(animAction);
+
+    speed = 1.0f;
 
     return result;
 }
 
 void Fany::update(float delta)
 {
+    this->speed += (delta * 1.0f);
+
+    if (speed > MAX_SPEED)
+    {
+        speed = MAX_SPEED;
+    }
+
+    anim->setDelayPerUnit(BASE_ANIM_SPEED * speed);
 }
