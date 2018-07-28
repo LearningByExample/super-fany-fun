@@ -37,6 +37,8 @@
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		580FFC37210314A60071B437 /* sprites in Resources */ = {isa = PBXBuildFile; fileRef = 580FFC36210314A60071B437 /* sprites */; };
 		580FFC38210314A60071B437 /* sprites in Resources */ = {isa = PBXBuildFile; fileRef = 580FFC36210314A60071B437 /* sprites */; };
+		587B7F8C210C963000599740 /* GameMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 587B7F8A210C963000599740 /* GameMap.cpp */; };
+		587B7F8D210C963000599740 /* GameMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 587B7F8A210C963000599740 /* GameMap.cpp */; };
 		58DC4FC6210798B800B1B005 /* Fany.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58DC4FC5210798B800B1B005 /* Fany.cpp */; };
 		58DC4FC7210798B800B1B005 /* Fany.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58DC4FC5210798B800B1B005 /* Fany.cpp */; };
 		58DC4FCB21079C7200B1B005 /* BackGround.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58DC4FC921079C7200B1B005 /* BackGround.cpp */; };
@@ -124,6 +126,8 @@
 		5087E78A17EB975400C73F5D /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		580FFC36210314A60071B437 /* sprites */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sprites; sourceTree = "<group>"; };
+		587B7F8A210C963000599740 /* GameMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameMap.cpp; sourceTree = "<group>"; };
+		587B7F8B210C963000599740 /* GameMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameMap.h; sourceTree = "<group>"; };
 		58DC4FC3210798B800B1B005 /* Fany.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fany.h; sourceTree = "<group>"; };
 		58DC4FC5210798B800B1B005 /* Fany.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fany.cpp; sourceTree = "<group>"; };
 		58DC4FC921079C7200B1B005 /* BackGround.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BackGround.cpp; sourceTree = "<group>"; };
@@ -281,6 +285,8 @@
 				46880B8719C43A87006E1F66 /* GameScene.h */,
 				58DC4FC921079C7200B1B005 /* BackGround.cpp */,
 				58DC4FCA21079C7200B1B005 /* BackGround.h */,
+				587B7F8A210C963000599740 /* GameMap.cpp */,
+				587B7F8B210C963000599740 /* GameMap.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -435,6 +441,7 @@
 				1AF87B8B1F6F782A007BE51C /* RootViewController.mm in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				58DC4FC6210798B800B1B005 /* Fany.cpp in Sources */,
+				587B7F8C210C963000599740 /* GameMap.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
 				58DC4FCB21079C7200B1B005 /* BackGround.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* GameScene.cpp in Sources */,
@@ -449,6 +456,7 @@
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* GameScene.cpp in Sources */,
 				58DC4FC7210798B800B1B005 /* Fany.cpp in Sources */,
+				587B7F8D210C963000599740 /* GameMap.cpp in Sources */,
 				58DC4FCC21079C7200B1B005 /* BackGround.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

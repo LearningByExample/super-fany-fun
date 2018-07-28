@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "Fany.h"
 #include "BackGround.h"
+#include "GameMap.h"
 
 class GameScene : public cocos2d::Scene
 {
@@ -19,7 +20,8 @@ public:
 
 private:
   Fany *fany;
-  BackGround *bg; 
+  BackGround *bg;
+  GameMap *gameMap;
 };
 
 #endif // __GAME_SCENE_H__

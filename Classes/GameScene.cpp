@@ -36,6 +36,15 @@ bool GameScene::init()
 
     this->addChild(fany);
 
+    gameMap = GameMap::create();
+    if (gameMap == nullptr)
+    {
+        CCLOGERROR("error loading game map");
+        return false;
+    }
+
+    this->addChild(gameMap);
+
     this->scheduleUpdate();
 
     CCLOG("game init complete");
@@ -47,7 +56,9 @@ void GameScene::update(float delta)
 {
     float speed = fany->getSpeed();
 
-    bg->scroll(delta * 150.0f * speed);
+    bg->scroll(delta * 100.0f * speed);
+
+    gameMap->scroll(delta * 150.0f * speed);
 
     fany->update(delta);
 }

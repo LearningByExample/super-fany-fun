@@ -10,7 +10,7 @@ bool Fany::init()
     {
         auto width = Director::getInstance()->getVisibleSize().width;
         this->setAnchorPoint(Vec2(0.5f, 0.0f));
-        this->setPosition(width / 2, 0);
+        this->setPosition(width / 2, 110.0f);
         this->setScale(0.5f);
     }
 
