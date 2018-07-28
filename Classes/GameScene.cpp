@@ -18,7 +18,7 @@ bool GameScene::init()
         return false;
     }
 
-    bg = BackGround::create();
+    bg = BackGround::create("sprites/backgrounds/forest.png");
     if (bg == nullptr)
     {
         CCLOGERROR("error loading background");

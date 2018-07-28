@@ -2,28 +2,56 @@
 
 USING_NS_CC;
 
-bool BackGround::init()
+BackGround *BackGround::create(std::string fileName)
+{
+    BackGround *pRet = new (std::nothrow) BackGround();
+
+    if (pRet && pRet->init(fileName))
+    {
+        pRet->autorelease();
+        return pRet;
+    }
+    else
+    {
+        delete pRet;
+        pRet = nullptr;
+        return nullptr;
+    }
+}
+
+bool BackGround::init(std::string fileName)
 {
     auto bottomLeft = Vec2(0.0f, 0.0f);
     this->setAnchorPoint(bottomLeft);
 
-    auto layer1 = Sprite::create("sprites/backgrounds/forest.png");
-    layer1->setAnchorPoint(bottomLeft);
-    layer1->setPosition(0.0f, 0.0f);
-    this->addChild(layer1);
+    auto layerBase = Sprite::create(fileName);
+    layerBase->setAnchorPoint(bottomLeft);
+    layerBase->setPosition(0.0f, 0.0f);
+    this->addChild(layerBase);
 
-    this->layerWidth = layer1->getContentSize().width;
-    auto height = layer1->getContentSize().height;
+    auto screenWidth = Director::getInstance()->getVisibleSize().width;
+    auto screenHeight = Director::getInstance()->getVisibleSize().height;
+    this->layerWidth = layerBase->getContentSize().width;
+    auto layerHeight = layerBase->getContentSize().height;
 
-    auto layer2 = Sprite::create("sprites/backgrounds/forest.png");
-    layer2->setAnchorPoint(bottomLeft);
-    layer2->setPosition(layerWidth, 0.0f);
-    this->addChild(layer2);
+    float scale = screenHeight / layerHeight;
 
-    auto layer3 = Sprite::create("sprites/backgrounds/forest.png");
-    layer3->setAnchorPoint(bottomLeft);
-    layer3->setPosition(layerWidth * 2, 0.0f);
-    this->addChild(layer3);
+    layerBase->setScale(scale);
+
+    this->layerWidth *= scale;
+    layerHeight *= scale;
+
+    float pos = layerWidth;
+    while (pos < (screenWidth + layerWidth))
+    {
+        auto newLayer = Sprite::createWithSpriteFrame(layerBase->getSpriteFrame());
+        newLayer->setAnchorPoint(bottomLeft);
+        newLayer->setPosition(pos, 0.0f);
+        newLayer->setScale(scale);
+        this->addChild(newLayer);
+
+        pos += layerWidth;
+    }
 
     return true;
 }

@@ -6,10 +6,8 @@
 class BackGround : public cocos2d::Node
 {
 public:
-  virtual bool init();
-
-  // implement the "static create()" method manually
-  CREATE_FUNC(BackGround);
+  static BackGround *create(std::string fileName);
+  virtual bool init(std::string fileName);
 
   void scroll(float amount);
 
