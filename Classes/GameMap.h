@@ -20,7 +20,34 @@ public:
   void scroll(float amount);
 
 private:
-  std::list<cocos2d::Sprite*> blocks;
+  enum BlockStatus
+  {
+    Starting,
+    Bulding,
+    Ending
+
+  };
+
+  BlockStatus status;
+  int numBlocks;
+  int maxBuilding;
+  int pos;
+  int totalBlocks;
+  const cocos2d::Vec2 bottomLeft = cocos2d::Vec2(0.0f, 0.0f);
+
+  std::list<cocos2d::Sprite *> blocks;
+
+  int getBlockFromStatus();
+
+  void onStarting();
+  void onBulding();
+  void onEnding();
+
+  void changeState(BlockStatus newStatus);
+
+  void createBlock();
+
+  unsigned short int getMaxNumOfBlocks();
 };
 
 #endif /* __GAMEMAP_H__ */

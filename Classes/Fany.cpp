@@ -4,7 +4,10 @@ USING_NS_CC;
 
 bool Fany::init()
 {
-    auto result = this->initWithFile("sprites/ninja/Run__000.png");
+    auto cache = SpriteFrameCache::getInstance();
+    cache->addSpriteFramesWithFile("sprites/ninja/run.plist");
+
+    auto result = this->initWithSpriteFrameName("Run__000.png");
 
     if (result)
     {
@@ -14,13 +17,18 @@ bool Fany::init()
         this->setScale(0.5f);
     }
 
-    anim = Animation::create();
+    Vector<SpriteFrame *> frames(10);
     for (unsigned short int num = 0; num <= 9; num++)
     {
         char name[255];
-        std::snprintf(name, 255, "sprites/ninja/Run__%03d.png", num);
-        anim->addSpriteFrameWithFile(name);
+        std::snprintf(name, 255, "Run__%03d.png", num);
+
+        auto frame = cache->getSpriteFrameByName(name);
+        frames.pushBack(frame);
     }
+
+    anim = Animation::createWithSpriteFrames(frames);
+
     anim->setLoops(-1);
     anim->setDelayPerUnit(BASE_ANIM_SPEED);
 
