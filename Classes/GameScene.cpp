@@ -56,9 +56,9 @@ void GameScene::update(float delta)
 {
     float speed = fany->getSpeed();
 
-    bg->scroll(delta * 100.0f * speed);
+    bg->scroll(delta * BACKGROUND_BASE_SPEED * speed);
 
-    gameMap->scroll(delta * 150.0f * speed);
+    gameMap->scroll(delta * MAP_BASE_SPEED * speed);
 
     fany->update(delta);
 }
