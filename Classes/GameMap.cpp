@@ -9,7 +9,7 @@
 
 USING_NS_CC;
 
-int GameMap::getBlockFromStatus()
+int GameMap::getBlockSpritNumberFromStatus()
 {
     int num = 1;
 
@@ -28,54 +28,55 @@ int GameMap::getBlockFromStatus()
 
     return num;
 }
-unsigned short int GameMap::getMaxNumOfBlocks()
+unsigned short int GameMap::getInitialNumberOfBlocksToBuild()
 {
     auto cache = SpriteFrameCache::getInstance();
 
     auto img = cache->getSpriteFrameByName("2.png");
-    auto originaslWidth = img->getOriginalSize().width;
+    auto originalWidth = img->getOriginalSize().width;
 
-    return (int)(Director::getInstance()->getVisibleSize().width / originaslWidth) + 1;
+    return (int)(Director::getInstance()->getVisibleSize().width / originalWidth) + 1;
 }
 
 bool GameMap::init()
 {
     this->setAnchorPoint(bottomLeft);
 
-    auto cache = SpriteFrameCache::getInstance();
-    cache->addSpriteFramesWithFile("sprites/titles/blocks.plist");
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("sprites/titles/blocks.plist");
 
-    numBlocks = 0;
-    pos = 0;
-    totalBlocks = 0;
-
+    blocksBuilt = 0;
+    currentBlockPositionX = 0;
+    totalBlocksAdded = 0;
     status = BlockStatus::Starting;
-    for (unsigned short int i = 0; i < getMaxNumOfBlocks(); i++)
+
+    for (unsigned short int i = 0; i < getInitialNumberOfBlocksToBuild(); i++)
     {
-        createBlock();
+        addNewBlock();
     }
 
     return true;
 }
 
-void GameMap::createBlock()
+void GameMap::addNewBlock()
 {
     auto cache = SpriteFrameCache::getInstance();
 
     char name[255];
-    std::snprintf(name, 255, "%d.png", getBlockFromStatus());
+    std::snprintf(name, 255, "%d.png", getBlockSpritNumberFromStatus());
 
     auto block = Sprite::createWithSpriteFrame(cache->getSpriteFrameByName(name));
-    block->setPosition(pos, 0.0f);
+    block->setPosition(currentBlockPositionX, 0.0f);
     block->setAnchorPoint(bottomLeft);
+
     auto width = block->getContentSize().width - 1;
-    pos += width;
-    totalBlocks++;
-    block->setTag(1024 + totalBlocks);
+    currentBlockPositionX += width;
+    totalBlocksAdded++;
+
+    block->setTag(INITIAL_TAG + totalBlocksAdded);
 
     this->addChild(block);
 
-    numBlocks++;
+    blocksBuilt++;
 
     switch (status)
     {
@@ -94,18 +95,18 @@ void GameMap::createBlock()
 void GameMap::changeState(BlockStatus newStatus)
 {
     status = newStatus;
-    numBlocks = 0;
+    blocksBuilt = 0;
 }
 
 void GameMap::onStarting()
 {
     changeState(BlockStatus::Bulding);
-    maxBuilding = (rand() % 5) + 1;
+    maxBlockToBuild = (rand() % 5) + 1;
 }
 
 void GameMap::onBulding()
 {
-    if (numBlocks > maxBuilding)
+    if (blocksBuilt > maxBlockToBuild)
     {
         changeState(BlockStatus::Ending);
     }
@@ -114,7 +115,7 @@ void GameMap::onBulding()
 void GameMap::onEnding()
 {
     changeState(BlockStatus::Starting);
-    pos += 5;
+    currentBlockPositionX += BLOCK_GAP;
 }
 
 void GameMap::scroll(float amount)
@@ -136,7 +137,7 @@ void GameMap::scroll(float amount)
             if (xPosInScreen < -(block->getContentSize().width))
             {
                 this->removeChildByTag(block->getTag());
-                createBlock();
+                addNewBlock();
 
                 break;
             }

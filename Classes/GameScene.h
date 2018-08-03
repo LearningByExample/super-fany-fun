@@ -22,6 +22,9 @@ private:
   Fany *fany;
   BackGround *bg;
   GameMap *gameMap;
+
+  const float BACKGROUND_BASE_SPEED = 100.0f;
+  const float MAP_BASE_SPEED = 150.f;
 };
 
 #endif // __GAME_SCENE_H__
